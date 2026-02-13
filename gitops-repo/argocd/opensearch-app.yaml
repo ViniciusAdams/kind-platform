@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/YOURUSER/gitops-repo.git
+    repoURL: https://github.com/ViniciusAdams/kind-platform
     targetRevision: main
     path: apps/opensearch
   destination:
