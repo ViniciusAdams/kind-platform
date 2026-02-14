@@ -5,12 +5,13 @@ roles:
   - ingest
   - data
 
-extraEnvs:
-  - name: OPENSEARCH_INITIAL_ADMIN_PASSWORD
-    valueFrom:
-      secretKeyRef:
-        name: opensearch-admin
-        key: admin-password
+opensearch:
+  extraEnvs:
+    - name: OPENSEARCH_INITIAL_ADMIN_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: opensearch-admin
+          key: admin-password
 
 resources:
   requests:
