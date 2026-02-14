@@ -1,15 +1,16 @@
 replicas: 1
 
-clusterName: opensearch-cluster
-nodeGroup: master
-
 roles:
-  master: "true"
-  ingest: "true"
-  data: "true"
-  remote_cluster_client: "true"
+  - master
+  - ingest
+  - data
 
-opensearchJavaOpts: "-Xms512m -Xmx512m"
+extraEnvs:
+  - name: OPENSEARCH_INITIAL_ADMIN_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: opensearch-admin
+        key: admin-password
 
 resources:
   requests:
@@ -18,10 +19,3 @@ resources:
   limits:
     cpu: "1"
     memory: "2Gi"
-
-extraEnvs:
-  - name: OPENSEARCH_INITIAL_ADMIN_PASSWORD
-    valueFrom:
-      secretKeyRef:
-        name: opensearch-admin
-        key: admin-password
