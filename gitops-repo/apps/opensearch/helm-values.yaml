@@ -1,17 +1,17 @@
 replicas: 1
-
 roles:
   - master
   - ingest
   - data
 
-opensearch:
-  extraEnvs:
-    - name: OPENSEARCH_INITIAL_ADMIN_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: opensearch-admin
-          key: admin-password
+nodes:
+  - nodeName: "opensearch-node-0"
+    extraEnvs:
+      - name: OPENSEARCH_INITIAL_ADMIN_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: opensearch-admin
+            key: admin-password
 
 resources:
   requests:
