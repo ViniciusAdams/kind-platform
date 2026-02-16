@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://ViniciusAdams.github.io/grafana-helm
-    chart: grafana
-    targetRevision: 0.1.0
+    repoURL: https://github.com/ViniciusAdams/grafana-helm-chart
+    path: grafana
+    targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
